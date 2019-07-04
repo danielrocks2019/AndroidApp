@@ -92,9 +92,12 @@ public class RegistroUsuarios extends AppCompatActivity {
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     try {
 
-                        Toast.makeText(getApplicationContext(),"Registro realizado", Toast.LENGTH_SHORT).show();
-                        Toast.makeText(getApplicationContext(), response.getString("name"), Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(RegistroUsuarios.this,MainProductosTienda.class);
+                        Toast.makeText(getApplicationContext(),"Registro realizado", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), response.getString("name"), Toast.LENGTH_LONG).show();
+                       // Intent intent = new Intent(RegistroUsuarios.this,MainProductosTienda.class);
+                       // startActivity(intent);
+
+                        Intent intent = new Intent(RegistroUsuarios.this,MenuTienda.class);
                         startActivity(intent);
 
 
@@ -110,7 +113,7 @@ public class RegistroUsuarios extends AppCompatActivity {
             });
         }
         else{
-            Toast.makeText(getApplicationContext(),"fill in the empty spaces", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"llene los espacios, porfavor", Toast.LENGTH_SHORT).show();
             confir=0;
 
         }

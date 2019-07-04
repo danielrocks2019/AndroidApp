@@ -8,108 +8,121 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="243dp"
-        android:layout_height="64dp"
+        android:layout_width="250dp"
+        android:layout_height="46dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:text="MENU "
+        android:textAlignment="center"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="395dp"
-        android:layout_height="150dp"
+        android:layout_width="391dp"
+        android:layout_height="185dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" >
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="5dp">
 
             <Button
                 android:id="@+id/button11"
-                android:layout_width="150dp"
+                android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:paddingVertical="10dp"
                 android:text="Button" />
 
             <Button
                 android:id="@+id/button12"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="10dp"
                 android:text="Button" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="395dp"
-        android:layout_height="150dp"
+        android:layout_width="391dp"
+        android:layout_height="185dp"
+        android:layout_centerInParent="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
+
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" >
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="5dp">
 
             <Button
                 android:id="@+id/button13"
-                android:layout_width="150dp"
+                android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Button" />
 
             <Button
                 android:id="@+id/button14"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Button" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:layout_width="395dp"
-        android:layout_height="150dp"
+        android:layout_width="391dp"
+        android:layout_height="185dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" >
+        app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="5dp">
 
             <Button
                 android:id="@+id/button15"
-                android:layout_width="150dp"
+                android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Button" />
 
             <Button
                 android:id="@+id/button16"
-                android:layout_width="150dp"
+                android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Button" />
