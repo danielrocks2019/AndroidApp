@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
         });
 
     }
-
+    /*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -127,6 +127,8 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
         }
     }
 
+    */
+/*
     private void handleSignInResult(GoogleSignInResult result) {
         if (result.isSuccess()) {
             CheckInformation();
@@ -138,12 +140,17 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
             startActivity(intent);
         }
     }
+    */
+
+   /*
     private void CheckInformation(){
         Intent intent= new Intent(this, CheckInformation.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
 
     }
+
+    */
     private void loadcomponents() {
         SignInButton googlebtn = (SignInButton) this.findViewById(R.id.googlebutton);
         googlebtn.setOnClickListener(new View.OnClickListener() {
