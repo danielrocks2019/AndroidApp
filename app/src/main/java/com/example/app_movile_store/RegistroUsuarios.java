@@ -3,10 +3,13 @@ package com.example.app_movile_store;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.app_movile_store.Host.host;
@@ -16,6 +19,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -23,6 +27,10 @@ import com.loopj.android.http.RequestParams;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -41,6 +49,8 @@ public class RegistroUsuarios extends AppCompatActivity implements OnMapReadyCal
 //declarando variable mapa
 
     private GoogleMap mMap;
+    private Geocoder geocoder;
+    private TextView street;
 
     //HOST habilita la ip del servivcio node app.js
     private host HOST = new host();
@@ -56,6 +66,10 @@ public class RegistroUsuarios extends AppCompatActivity implements OnMapReadyCal
         map.onResume();
         MapsInitializer.initialize(this);
         map.getMapAsync(this);
+
+        geocoder = new Geocoder(getBaseContext(), Locale.getDefault());
+        street = findViewById(R.id.street);
+
 
         Name = findViewById(R.id.etName);
         LastName = findViewById(R.id.etLastName);
@@ -151,9 +165,41 @@ public class RegistroUsuarios extends AppCompatActivity implements OnMapReadyCal
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(-19.5683833, -65.7628572);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("lugar").zIndex(17).draggable(true));
+        mMap.setMinZoomPreference(16);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+            @Override
+            public void onMarkerDragStart(Marker marker) {
+
+            }
+
+            @Override
+            public void onMarkerDrag(Marker marker) {
+
+            }
+
+            @Override
+            public void onMarkerDragEnd(Marker marker) {
+                String street_string = getStreet(marker.getPosition().latitude, marker.getPosition().longitude);
+                street.setText(street_string);
+
+            }
+        });
+    }
+    public String getStreet(Double lat, Double lon){
+        List<Address> address;
+        String result = "";
+        try {
+           address=  geocoder.getFromLocation(lat, lon, 1);
+            result = address.get(0).getThoroughfare();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+
 
     }
 }
