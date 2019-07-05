@@ -140,7 +140,7 @@ public class RegistroUsuarios extends AppCompatActivity implements OnMapReadyCal
         }
     }
 
-
+//funcion para el mapa
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
