@@ -1,6 +1,7 @@
 package com.example.app_movile_store;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
 public class MenuTienda extends AppCompatActivity {
@@ -10,6 +11,4 @@ public class MenuTienda extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_tienda);
     }
-
-
 }

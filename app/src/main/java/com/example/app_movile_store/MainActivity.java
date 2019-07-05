@@ -3,9 +3,6 @@ package com.example.app_movile_store;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,11 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.app_movile_store.Host.host;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-
-
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -32,10 +29,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.jar.Attributes;
+
 import cz.msebera.android.httpclient.Header;
 
-
-public class MainActivity extends AppCompatActivity  implements GoogleApiClient.OnConnectionFailedListener{
+public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     //declaracion de variables globbales
     //nota podemos volverlas locales, pero esta mejor asi
@@ -43,17 +41,16 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
     private int GOOGLE_CODE=11267;
     private EditText Name;
     private  EditText Password;
-    private TextView  Info;
+    private TextView Info;
     private Button Login;
     //thirActivity
     private Button Register;
     private String eemail2;
-    private String pw;
-    private Button property;
+
+
     private GoogleApiClient client;
 
-    private Button verAuncios;
-    private Button Binmuebles;
+
 
     private ImageView abc;
 
@@ -61,10 +58,11 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
     //HOST: la siguiente linea enlaza al setvidor de node,
     // //cambiar la ip en la clase host cada que hagamos conexion con algun telefono o router
 
-        private host HOST = new host();
+    private host HOST = new host();
 
     @TargetApi(Build.VERSION_CODES.M)
     @RequiresApi(api = Build.VERSION_CODES.M)
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,18 +74,18 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
         GoogleSignInOptions options = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-        client = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, options)
-                .build();
-        loadcomponents();
+    client = new GoogleApiClient.Builder(this)
+            .enableAutoManage(this, this)
+            .addApi(Auth.GOOGLE_SIGN_IN_API, options)
+            .build();
+    loadcomponents();
 
-        Name = findViewById(R.id.etName);
-        Password = findViewById(R.id.etPassword);
-        Login = findViewById(R.id.btnLogin);
-        Register = findViewById(R.id.btnRegister); //button activity crear Cuenta
+    Name = findViewById(R.id.etName);
+    Password = findViewById(R.id.etPassword);
+    Login = findViewById(R.id.btnLogin);
+    Register = findViewById(R.id.btnRegister); //button activity crear Cuenta
 
-        abc = findViewById(R.id.ivperro);
+    abc = findViewById(R.id.ivperro);
 
 
 
@@ -111,8 +109,11 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
             }
         });
 
+
+
     }
-    /*
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -127,8 +128,9 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
         }
     }
 
-    */
-/*
+
+
+
     private void handleSignInResult(GoogleSignInResult result) {
         if (result.isSuccess()) {
             CheckInformation();
@@ -140,17 +142,17 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
             startActivity(intent);
         }
     }
-    */
 
-   /*
-    private void CheckInformation(){
-        Intent intent= new Intent(this, CheckInformation.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
 
-    }
 
-    */
+     private void CheckInformation(){
+         Intent intent= new Intent(this, CheckInformation.class);
+         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+         startActivity(intent);
+
+     }
+
+
     private void loadcomponents() {
         SignInButton googlebtn = (SignInButton) this.findViewById(R.id.googlebutton);
         googlebtn.setOnClickListener(new View.OnClickListener() {
@@ -212,4 +214,12 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
 }
+
+
+
+
+
+
+

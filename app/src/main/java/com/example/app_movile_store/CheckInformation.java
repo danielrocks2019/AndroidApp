@@ -1,4 +1,4 @@
 package com.example.app_movile_store;
 
-class CheckInformation {
+public class CheckInformation {
 }

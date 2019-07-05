@@ -1,14 +1,22 @@
 package com.example.app_movile_store;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.app_movile_store.Host.host;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -18,7 +26,7 @@ import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
-public class RegistroUsuarios extends AppCompatActivity {
+public class RegistroUsuarios extends AppCompatActivity implements OnMapReadyCallback {
 
     private EditText Name;
     private EditText LastName;
@@ -28,18 +36,27 @@ public class RegistroUsuarios extends AppCompatActivity {
     private Button Register;
 
     private int confir=0;
-
+    private MapView map;
+//declarando variable mapa
+    private GoogleMap mMap;
 
     //HOST habilita la ip del servivcio node app.js
     private host HOST = new host();
     //private host HOST =new host();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registrousuarios);
+        setContentView(R.layout.activity_registro_usuarios);
+
+        map = findViewById(R.id.mapView);
+        map.onCreate(savedInstanceState);
+        map.onResume();
+        MapsInitializer.initialize(this);
+        map.getMapAsync(this);
 
         Name = findViewById(R.id.etName);
-        LastName = findViewById(R.id.etLastNmae);
+        LastName = findViewById(R.id.etLastName);
         Phone = findViewById(R.id.etPhone);
         Email = findViewById(R.id.etEmail);
         Password = findViewById(R.id.etPassword);
@@ -65,7 +82,11 @@ public class RegistroUsuarios extends AppCompatActivity {
 
         });
 
+
+
+
     }
+
 
     private void sendDataRegister(final String name, String Lastname, String Phone, String Email, String Password) {
 
@@ -94,8 +115,8 @@ public class RegistroUsuarios extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(),"Registro realizado", Toast.LENGTH_LONG).show();
                         Toast.makeText(getApplicationContext(), response.getString("name"), Toast.LENGTH_LONG).show();
-                       // Intent intent = new Intent(RegistroUsuarios.this,MainProductosTienda.class);
-                       // startActivity(intent);
+                        // Intent intent = new Intent(RegistroUsuarios.this,MainProductosTienda.class);
+                        // startActivity(intent);
 
                         Intent intent = new Intent(RegistroUsuarios.this,MenuTienda.class);
                         startActivity(intent);
@@ -117,5 +138,19 @@ public class RegistroUsuarios extends AppCompatActivity {
             confir=0;
 
         }
+    }
+
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(-34, 151);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
     }
 }
