@@ -38,6 +38,8 @@ public class RegistroUsuarios extends AppCompatActivity implements OnMapReadyCal
     private int confir=0;
     private MapView map;
 
+//declarando variable mapa
+
     private GoogleMap mMap;
 
     //HOST habilita la ip del servivcio node app.js
@@ -141,6 +143,7 @@ public class RegistroUsuarios extends AppCompatActivity implements OnMapReadyCal
     }
 
 //funcion para el mapa
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
