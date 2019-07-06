@@ -51,6 +51,7 @@ public class RegistroUsuarios extends AppCompatActivity implements OnMapReadyCal
     private GoogleMap mMap;
     private Geocoder geocoder;
     private TextView street;
+    private LatLng mainposition;
 
     //HOST habilita la ip del servivcio node app.js
     private host HOST = new host();
@@ -119,6 +120,9 @@ public class RegistroUsuarios extends AppCompatActivity implements OnMapReadyCal
             params.put("phone", Phone);
             params.put("email", Email);
             params.put("password", Password);
+            ////posible error en latitud y longitud revisas
+            params.put("lat", mainposition.latitude);
+            params.put("lon", mainposition.longitude);
 
 
 
@@ -165,10 +169,12 @@ public class RegistroUsuarios extends AppCompatActivity implements OnMapReadyCal
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-19.5683833, -65.7628572);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("lugar").zIndex(17).draggable(true));
+        LatLng potosi = new LatLng(-19.5683833, -65.7628572);
+        ///recuperacion del lat y long
+        mainposition = potosi;
+        mMap.addMarker(new MarkerOptions().position(potosi).title("lugar").zIndex(17).draggable(true));
         mMap.setMinZoomPreference(16);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(potosi));
         mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
             @Override
             public void onMarkerDragStart(Marker marker) {
@@ -182,6 +188,7 @@ public class RegistroUsuarios extends AppCompatActivity implements OnMapReadyCal
 
             @Override
             public void onMarkerDragEnd(Marker marker) {
+                mainposition = marker.getPosition();
                 String street_string = getStreet(marker.getPosition().latitude, marker.getPosition().longitude);
                 street.setText(street_string);
 

@@ -6,7 +6,7 @@ public class host {
     // public String ip="http://192.168.43.174";
 
     //  public String ip="http://192.168.42.200";
-    public String ip="http://192.168.42.190";
+    public String ip="http://192.168.42.252";
 //192.168.1.6
 
 
