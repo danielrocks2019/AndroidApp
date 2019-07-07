@@ -109,7 +109,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             }
         });
 
-
+// codigo para colocar el icono en el action bar de la app
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
     }
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mixt1638"
     tools:context=".RegistroUsuarios">
 
 
@@ -139,9 +140,9 @@
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:text="Register"
         android:textAlignment="center"
@@ -181,7 +182,7 @@
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="391dp"
-        android:layout_height="185dp"
+        android:layout_height="199dp"
 
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
