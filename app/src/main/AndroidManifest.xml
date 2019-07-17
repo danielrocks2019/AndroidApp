@@ -24,7 +24,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".chatBoxActivity"></activity>
+        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".chatBoxActivity" />
         <activity android:name=".Lugar" />
         <activity android:name=".VerTienda" />
         <activity android:name=".EditarCliente" />
