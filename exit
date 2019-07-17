@@ -1,0 +1,11 @@
+user.name=Daniel Cruz
+user.email=leinadrocks_2019_@hotmail.com
+core.editor=nano
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/danielrocks2019/AndroidApp.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
