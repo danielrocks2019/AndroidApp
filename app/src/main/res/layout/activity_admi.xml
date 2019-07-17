@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admi">
+
+    <ImageView
+        android:id="@+id/fotoperfil"
+        android:layout_width="145dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="7dp"
+        android:background="@mipmap/boton11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/correo2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/boton11" />
+
+    <TextView
+        android:id="@+id/nombre2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Nombre"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/correo2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/ci2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="CI"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombre2" />
+
+    <TextView
+        android:id="@+id/telefono2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Telefono"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ci2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/correo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="208dp"
+        android:text="Correo"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/fotoperfil"
+        app:layout_constraintStart_toEndOf="@+id/nombre2"
+        app:layout_constraintTop_toBottomOf="@+id/telefono2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Tipo"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/correo2" />
+
+    <Button
+        android:id="@+id/verestaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="48dp"
+        android:text="Ver Tiendas"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipo" />
+
+    <Button
+        android:id="@+id/ctienda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="28dp"
+        android:text="Crear Tienda"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipo" />
+
+    <Button
+        android:id="@+id/edicuenta1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Editar cuenta"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ctienda"
+        app:layout_constraintVertical_bias="0.132" />
+
+    <Button
+        android:id="@+id/elicuenta1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="Eliminar cuenta"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verestaurant"
+        app:layout_constraintVertical_bias="0.132" />
+
+    <Button
+        android:id="@+id/irpedidos"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Controlar pedidos"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edicuenta1"
+        app:layout_constraintVertical_bias="0.416" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
