@@ -1,6 +1,6 @@
-package com.example.danielrocks.servicios.DATAPRO;
+package com.example.app_movile_store.DATAPRO;
 
-import com.example.danielrocks.servicios.ItemMenuPro.ItemMenuStructure;
+import com.example.app_movile_store.ItemMenuPro.ItemMenuStructure;
 
 import java.util.ArrayList;
 

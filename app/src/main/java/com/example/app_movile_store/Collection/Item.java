@@ -1,4 +1,4 @@
-package com.example.danielrocks.servicios.Collection;
+package com.example.app_movile_store.Collection;
 
 public class Item {
 

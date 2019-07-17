@@ -1,4 +1,4 @@
-package com.example.danielrocks.servicios.Collection;
+package com.example.app_movile_store.Collection;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.example.danielrocks.servicios.R;
+import com.example.app_movile_store.R;
 
 import java.util.ArrayList;
 import java.util.List;
