@@ -26,6 +26,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -42,12 +43,21 @@ public class FotoTienda extends AppCompatActivity {
     private ImageView IMG;
     private ImageButton btn;
     private Button SEND;
+    private String id;
     private BitmapStruct DATAIMAGE;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foto_tienda);
         btn = findViewById(R.id.tomarfoto);
+        Intent intent = getIntent();
+        if(intent.getExtras()==null){
+            Toast.makeText(this,Data.ID_TIENDA,Toast.LENGTH_LONG).show();
+            id=Data.ID_TIENDA;
+        }else{
+            id=intent.getExtras().getString("id");
+        }
+
 
         SEND = findViewById(R.id.registrar);
         IMG = findViewById(R.id.imgrestaurant);
@@ -66,12 +76,21 @@ public class FotoTienda extends AppCompatActivity {
                     client.addHeader("authorization", Data.TOKEN);
                     RequestParams params = new RequestParams();
                     try {
-                        params.put("img", img);
+                        params.put("img", img, "image/jpeg");
 
-                        client.post(Data.UPLOAD_TIENDA, params, new JsonHttpResponseHandler(){
+                        client.post(Data.UPLOAD_TIENDA + id, params, new JsonHttpResponseHandler(){
                             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                 Toast.makeText(FotoTienda.this, "EXITO", Toast.LENGTH_LONG).show();
                                 //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONObject) was not overriden, but callback was received");
+                            }
+
+                            @Override
+                            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                                try {
+                                    Toast.makeText(getApplicationContext(),errorResponse.getString("msn"),Toast.LENGTH_SHORT).show();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         });
 

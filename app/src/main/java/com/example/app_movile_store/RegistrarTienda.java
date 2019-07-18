@@ -49,7 +49,7 @@ public class RegistrarTienda extends AppCompatActivity implements OnMapReadyCall
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_tienda);
 
-        map = findViewById(R.id.MapView1);
+        map = findViewById(R.id.mapView);
         map.onCreate(savedInstanceState);
         map.onResume();
         MapsInitializer.initialize(this);
@@ -130,8 +130,8 @@ public class RegistrarTienda extends AppCompatActivity implements OnMapReadyCall
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 AlertDialog alertDialog = new AlertDialog.Builder(RegistrarTienda.this).create();
                 try {
-                    String id = response.getString("id");
-                    Data.ID_TIENDA = id;
+                    final String idP = response.getString("id");
+                    Data.ID_TIENDA = idP;
                     String msn = response.getString("msn");
                     alertDialog.setTitle("RESPONSE SERVER");
                     alertDialog.setMessage(msn);
@@ -139,6 +139,7 @@ public class RegistrarTienda extends AppCompatActivity implements OnMapReadyCall
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent camera = new Intent(RegistrarTienda.this, FotoTienda.class);
+                                    camera.putExtra("id",idP);
                                     RegistrarTienda.this.startActivity(camera);
                                     dialog.dismiss();
                                 }
